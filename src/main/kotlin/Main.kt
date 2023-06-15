@@ -1,13 +1,7 @@
 
 fun main() {
     // Create an instance of AncestralStory
-    val story1 = AncestralStory(
-        "Mwangi, the brave boy",
-        "A boy that went searching for his beloved dog in the deadly forest",
-        "20 pages",
-        "bravery and courage",
-        "5-10 years"
-    )
+    val story1 = AncestralStory("Mwangi, the brave boy", "A boy that went searching for his beloved dog in the deadly forest", "20 pages", "bravery and courage", "5-10 years")
 
     // Create an instance of StoryTeller
     val storyteller1 = StoryTeller("Kamau Maina", "Kikuyu", "5-10 years")
@@ -26,12 +20,7 @@ fun main() {
 
     // Create an instance of AncestralStory
     val story2 = AncestralStory(
-        "Jamba Nene",
-        "A boy that met an ogre in the deadly forest",
-        "40 pages",
-        "obedience and courage",
-        "11-15 years"
-    )
+        "Jamba Nene", "A boy that met an ogre in the deadly forest", "40 pages", "obedience and courage", "11-15 years")
 
     // Create an instance of StoryTeller
     val storyteller2 = StoryTeller("Wambui Kamau", "Kikuyu", "11-15 years")
@@ -52,37 +41,20 @@ fun main() {
 
 
     val moroccanRecipe = MoroccanRecipe(
-        "Fried Chicken",
-        listOf("Chicken", "Onions", "Spices", "Cloves"),
-        "2 hours",
-        "Frying",
-        "Calories: 400, Fat: 15g, Protein: 30g",
-
-    )
+        "Fried Chicken", listOf("Chicken", "Onions", "Spices", "Cloves"), "2 hours", "Frying", "Calories: 400, Fat: 15g, Protein: 30g",)
 
     moroccanRecipe.displayRecipe()
     moroccanRecipe.displayMoroccanRecipe()
 
     val ethiopianRecipe = EthiopianRecipe(
-        "Injera",
-        listOf("Wheat Flour", "Onions", "Berbere Spice Mix"),
-        "3 hours",
-        "Baking",
-        "Calories: 450, Fat: 20g, Protein: 25g",
-
-    )
+        "Injera", listOf("Wheat Flour", "Onions", "Spices"), "3 hours", "Baking", "Calories: 450, Fat: 20g, Protein: 25g",)
 
     ethiopianRecipe.displayRecipe()
     ethiopianRecipe.displayEthiopianRecipe()
 
     val nigerianRecipe = NigerianRecipe(
         "Jollof Rice",
-        listOf("Rice", "Tomatoes", "Onions", "Peppers", "Chicken"),
-        "1 hour",
-        "Boiling, Frying",
-        "Calories: 300, Fat: 8g, Protein: 20g",
-
-    )
+        listOf("Rice", "Tomatoes", "Onions", "Peppers", "Chicken"), "1 hour", "Boiling, Frying", "Calories: 300, Fat: 8g, Protein: 20g",)
 
     nigerianRecipe.displayRecipe()
     nigerianRecipe.displayNigerianRecipe()
@@ -109,24 +81,15 @@ open class StoryTeller(val name: String, val language: String, val ageGroup: Str
 }
 
 class Translator(
-    val name: String,
-    val originalLanguage: String,
-    val translatedLanguage: String
-) {
+    val name: String, val originalLanguage: String, val translatedLanguage: String) {
     fun translate(story: Story): Story {
         val translatedContent = translateContent(story.content)
 
-        return Story(
-            story.title,
-            translatedContent,
-            story.length,
-            story.moralLessons,
-            story.ageGroup
-        )
+        return Story(story.title, translatedContent, story.length, story.moralLessons, story.ageGroup)
     }
 
-    private fun translateContent(content: String): String {
-        // Implement your translation logic here
+     fun translateContent(content: String): String {
+
         return content // Placeholder translation
     }
 }
@@ -142,31 +105,18 @@ class Translator(
 
 // Recipe class
 open class Recipe(
-    val name: String,
-    val ingredients: List<String>,
-    val preparationTime: String,
-    val cookingMethod: String,
-    val nutritionalInfo: String
-) {
+    val name: String, val ingredients: List<String>, val preparationTime: String, val cookingMethod: String, val nutritionalInfo: String) {
     // Method to display the recipe details
     open fun displayRecipe() {
         println("Recipe: $name")
         println("Ingredients: $ingredients")
         println("Preparation Time: $preparationTime")
         println("Cooking Method: $cookingMethod")
-        println("Nutritional Information: $nutritionalInfo")
-    }
+        println("Nutritional Information: $nutritionalInfo") }
 }
 
 // Subclass for Moroccan recipes
-class MoroccanRecipe(
-    name: String,
-    ingredients: List<String>,
-    preparationTime: String,
-    cookingMethod: String,
-    nutritionalInfo: String,
-
-) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
+class MoroccanRecipe(name: String, ingredients: List<String>, preparationTime: String, cookingMethod: String, nutritionalInfo: String, ) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
     // Method to display Moroccan recipe details
     fun displayMoroccanRecipe() {
         println()
@@ -174,14 +124,7 @@ class MoroccanRecipe(
 }
 
 // Subclass for Ethiopian recipes
-class EthiopianRecipe(
-    name: String,
-    ingredients: List<String>,
-    preparationTime: String,
-    cookingMethod: String,
-    nutritionalInfo: String,
-
-) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
+class EthiopianRecipe(name: String, ingredients: List<String>, preparationTime: String, cookingMethod: String, nutritionalInfo: String, ) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
     // Method to display Ethiopian recipe details
     fun displayEthiopianRecipe() {
         println()
@@ -189,15 +132,8 @@ class EthiopianRecipe(
 }
 
 // Subclass for Nigerian recipes
-class NigerianRecipe(
-    name: String,
-    ingredients: List<String>,
-    preparationTime: String,
-    cookingMethod: String,
-    nutritionalInfo: String,
-
-) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
-    // Method to display additional Nigerian recipe details
+class NigerianRecipe(name: String, ingredients: List<String>, preparationTime: String, cookingMethod: String, nutritionalInfo: String, ) : Recipe(name, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
+    // Method to display Nigerian recipe details
     fun displayNigerianRecipe() {
         println()
     }
